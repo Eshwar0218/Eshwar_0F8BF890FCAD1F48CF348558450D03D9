@@ -1,24 +1,21 @@
- # 1.2 Write a program that determines whether a year entered by the user is a leap year or not using ifelif-else statements.
+class Student:
+    def __init__(self,name,roll_number,cgpa):
+        self.name=name
+        self.roll_number=roll_number
+        self.cgpa=cgpa
 
-year = 2023
+def sort_students(student_list):
+    sorted_students=sorted(student_list,key=lambda student:student.cgpa,reverse=True)
+    return sorted_students
 
-# To get year (integer input) from the user # 
+Students=[Student("Eshwar","47",9.8),
+          Student("haripradhap","48",7.0),
+          Student("GaNaSeKaR","49",9.0),
+          Student("jeeva","46",10.0),
+         ]
 
-year = int(input("Enter a year: "))
+sorted_students=sort_students(Students)
 
-# divided by 100 means century year (ending with 00)
 
-# century year divided by 400 is leap year 
-
-if (year % 400 == 0) and (year % 100 == 0):
- print("{0} is a leap year".format(year))
-
-# not divided by 100 means not a century year
-# year divided by 4 is a leap year
-elif (year % 4 ==0) and (year % 100 != 0): 
-  print("{0} is a leap year".format(year))
-
-# if not divided by both 400 (century year) and 4 (not century year) 
-# year is not leap year 
-else:
-  print("{0} is not a leap year".format(year))
+for student in sorted_students:
+    print("Name : {} ,Roll Number : {}, CGPA : {}".format(student.name,student.roll_number,student.cgpa))
